@@ -1,0 +1,27 @@
+1. Create Virtual environment.
+python -m venv venv
+
+2. Initialize virtual environment
+venv/Scripts/activate.ps1
+
+3. Install kaggle and download walmart datasets
+pip install kaggle
+
+setx KAGGLE_API_TOKEN KGAT_f4f51febf02a29c41ea5104552447bca
+
+kaggle auth login
+
+kaggle datasets download -d mikhail1681/walmart-sales                                                          
+
+Expand-Archive -Path walmart-sales.zip -DestinationPath .
+
+4. Install required python libraries 
+pip install pandas pyarrow azure-storage-file-datalake azure-identity openpyxl
+pip install azure-identity azure-mgmt-resource azure-storage-blob
+
+5. Login to Azure
+az login
+
+6. Run Kaggle.py
+Before running .py file, Ensure that you have created containers(bronze, silver and gold)
+
