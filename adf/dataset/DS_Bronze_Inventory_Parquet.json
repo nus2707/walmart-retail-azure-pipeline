@@ -1,0 +1,30 @@
+{
+	"name": "DS_Bronze_Inventory_Parquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS_Gen2_Bronze",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"run_date": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "inventory_snapshot.parquet",
+				"folderPath": {
+					"value": "@concat('batch/inventory/date=', dataset().run_date)",
+					"type": "Expression"
+				},
+				"fileSystem": "bronze"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,28 @@
+{
+	"name": "TR_Nightly_Batch",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "PL_Master_Batch_Ingestion",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"run_date": "@formatDateTime(trigger().scheduledTime,'yyyy-MM-dd')"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2026-05-19T13:00:00",
+				"endTime": "2026-05-23T12:00:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"name": "walmart-adf1",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e5b8d816-e66e-4368-97b1-f176a1c84e7e",
+		"tenantId": "bfa8d63a-c1db-46f6-8f4c-5a2b94a9dc6b"
+	}
+}

@@ -1,0 +1,30 @@
+{
+	"name": "DS_Bronze_Supplier_Parquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS_Gen2_Bronze",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"run_date": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "supplier_orders.parquet",
+				"folderPath": {
+					"value": "@concat('batch/supplier_orders/date=', dataset().run_date)",
+					"type": "Expression"
+				},
+				"fileSystem": "bronze"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
