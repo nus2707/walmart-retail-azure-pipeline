@@ -12,7 +12,7 @@
 			"value": "https://walmart-key.vault.azure.net/"
 		},
 		"TR_Nightly_Batch_properties_PL_Master_Batch_Ingestion_parameters_run_date": {
-			"value": "@formatDateTime(trigger().scheduledTime,'yyyy-MM-dd')"
+			"value": "@formatDateTime(addDays(trigger().scheduledTime,-1),'yyyy-MM-dd')"
 		},
 		"containerUri": {
 			"value": ""

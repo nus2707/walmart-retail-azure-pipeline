@@ -17,7 +17,7 @@
 		},
 		"TR_Nightly_Batch_properties_PL_Master_Batch_Ingestion_parameters_run_date": {
 			"type": "string",
-			"defaultValue": "@formatDateTime(trigger().scheduledTime,'yyyy-MM-dd')"
+			"defaultValue": "@formatDateTime(addDays(trigger().scheduledTime,-1),'yyyy-MM-dd')"
 		},
 		"containerUri": {
 			"type": "string",
