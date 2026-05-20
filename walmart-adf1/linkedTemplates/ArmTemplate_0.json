@@ -236,16 +236,17 @@
 							},
 							"ifFalseActivities": [
 								{
-									"name": "Fail_File_Not_Found",
-									"type": "Fail",
+									"name": "Skip_Reason",
+									"type": "SetVariable",
 									"dependsOn": [],
+									"policy": {
+										"secureOutput": false,
+										"secureInput": false
+									},
 									"userProperties": [],
 									"typeProperties": {
-										"message": {
-											"value": "@concat('CRM file not found for date: ', pipeline().parameters.run_date)",
-											"type": "Expression"
-										},
-										"errorCode": "404"
+										"variableName": "skip_reason",
+										"value": "@concat('CRM file not found for ', pipeline().parameters.run_date, ' — skipping (runs Mondays only)')"
 									}
 								}
 							],
@@ -323,6 +324,11 @@
 					"run_date": {
 						"type": "string",
 						"defaultValue": "@formatDateTime(utcNow(),'yyyy-MM-dd')"
+					}
+				},
+				"variables": {
+					"skip_reason": {
+						"type": "String"
 					}
 				},
 				"annotations": [],
