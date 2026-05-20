@@ -54,7 +54,7 @@
 					},
 					"ifFalseActivities": [
 						{
-							"name": "Skip Reason",
+							"name": "Skip_Reason",
 							"type": "SetVariable",
 							"dependsOn": [],
 							"policy": {
